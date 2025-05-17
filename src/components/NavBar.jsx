@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi'
-import Logo from '../assets/images/vaishakh3-logo.png'
+// import Logo from '../assets/images/vaishakh3-logo.png'
 import { useState, useEffect } from 'react'
 
 const NavBar = ({ darkMode, toggleDarkMode }) => {
