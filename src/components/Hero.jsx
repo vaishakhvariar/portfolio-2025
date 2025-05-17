@@ -92,9 +92,9 @@ const Hero = () => {
             Contact Me
           </a>
           <a 
-            href="/your-resume.pdf" 
+            href="/documents/vaishakh-variar-cv.pdf" 
             className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
-            download
+            download="vaishakh-variar-cv.pdf"
           >
             <HiDownload className="text-xl" />
             Download CV
