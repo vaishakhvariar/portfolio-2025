@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 :root {
-  --highlight: #32CD32;
+  --highlight: #33a63b;
 }
 
 .dark {
