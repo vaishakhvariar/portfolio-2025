@@ -8,7 +8,7 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 // import TechWheel from './components/TechWheel'
-import TechStackGrid from './components/TechStackGrid'
+// import TechStackGrid from './components/TechStackGrid'
 import Projects from './components/Projects'
 import SEO from './components/SEO'
 import Analytics from './components/Analytics'
@@ -114,7 +114,7 @@ function App() {
             <Hero />
             <Experience />
             <Education />
-            <TechStackGrid />
+            {/* <TechStackGrid /> */}
             <Skills />
             <Projects />
             <Contact />

@@ -6,10 +6,10 @@ const projects = [
   {
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features dark mode, animations, and a clean design.',
-    image: '/images/projects/portfolio.jpg',
+    image: '/images/projects/portfolio.png',
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-    githubUrl: 'https://github.com/vaishakhvariar/portfolio-v2-2025',
-    liveUrl: 'https://vaishakhvariar.com',
+    githubUrl: 'https://github.com/vaishakhvariar/portfolio-2025',
+    liveUrl: 'https://vaishakh-variar-portfolio-2025.vercel.app/',
     featured: true
   },
   // Add more projects here
