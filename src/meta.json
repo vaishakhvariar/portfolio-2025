@@ -1,11 +1,11 @@
 {
   "title": "Vaishakh Variar | Full-Stack Developer",
-  "description": "Full-Stack Developer specializing in modern web technologies. Experienced in React, Node.js, and cloud technologies.",
-  "keywords": "full-stack developer, web development, react, node.js, javascript, mongodb",
+  "description": "Full-Stack Developer specializing in React, Vite, and modern web technologies. Creating beautiful digital experiences with cutting-edge development practices.",
+  "keywords": "full-stack developer, web development, react, vite, javascript, tailwind css, portfolio, vaishakh variar",
   "author": "Vaishakh Variar",
-  "siteUrl": "https://your-domain.com",
+  "siteUrl": "https://vaishakh-variar-portfolio-2025.vercel.app",
   "ogImage": "/og-image.jpg",
-  "twitterHandle": "@yourusername",
+  "twitterHandle": "@vaishakhvariar",
   "themeColor": "#3B82F6",
   "sections": {
     "hero": {

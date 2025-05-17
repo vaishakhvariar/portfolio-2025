@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
-const GA_TRACKING_ID = 'G-XXXXXXXXXX' // Replace with your Google Analytics tracking ID
+// Replace this with your actual GA4 Measurement ID
+const GA_TRACKING_ID = import.meta.env.VITE_GA_MEASUREMENT_ID
 
 const Analytics = () => {
   useEffect(() => {
@@ -15,6 +16,9 @@ const Analytics = () => {
 
     // Add click tracking for important elements
     addClickTracking()
+
+    // Add performance tracking
+    addPerformanceTracking()
   }, [])
 
   const loadGoogleAnalytics = () => {
@@ -31,6 +35,7 @@ const Analytics = () => {
     gtag('js', new Date())
     gtag('config', GA_TRACKING_ID, {
       page_path: window.location.pathname,
+      send_page_view: true
     })
 
     // Make gtag available globally
@@ -40,8 +45,9 @@ const Analytics = () => {
   const trackPageView = () => {
     const trackPage = () => {
       window.gtag?.('event', 'page_view', {
+        page_location: window.location.href,
         page_path: window.location.pathname,
-        page_title: document.title,
+        page_title: document.title
       })
     }
 
@@ -70,7 +76,7 @@ const Analytics = () => {
         if (scrollPercentage >= threshold && lastScrollPercentage < threshold) {
           window.gtag?.('event', 'scroll_milestone', {
             percentage: threshold,
-            page: window.location.pathname,
+            page_path: window.location.pathname
           })
         }
       })
@@ -84,28 +90,51 @@ const Analytics = () => {
 
   const addClickTracking = () => {
     const handleClick = (event) => {
-      // Track clicks on important elements
-      const trackableElements = {
-        'a[href^="http"]': 'external_link',
-        'a[href^="#"]': 'navigation_link',
-        'a[href$=".pdf"]': 'download_cv',
-        '.project-card': 'project_view',
-        '.contact-button': 'contact_click',
-      }
+      const target = event.target.closest('a, button')
+      if (!target) return
 
-      for (const [selector, eventName] of Object.entries(trackableElements)) {
-        if (event.target.matches(selector)) {
-          window.gtag?.('event', eventName, {
-            element: event.target.textContent,
-            url: event.target.href || '',
-            page: window.location.pathname,
-          })
-        }
-      }
+      const label = target.textContent?.trim() || 
+                   target.getAttribute('aria-label') || 
+                   target.getAttribute('title') ||
+                   'Unnamed element'
+
+      window.gtag?.('event', 'click', {
+        element_type: target.tagName.toLowerCase(),
+        element_text: label,
+        element_class: target.className,
+        page_path: window.location.pathname
+      })
     }
 
     document.addEventListener('click', handleClick)
     return () => document.removeEventListener('click', handleClick)
+  }
+
+  const addPerformanceTracking = () => {
+    if ('performance' in window) {
+      // Track Core Web Vitals
+      const reportWebVitals = ({ name, delta, id }) => {
+        window.gtag?.('event', 'web_vitals', {
+          metric_name: name,
+          metric_value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+          metric_id: id,
+        })
+      }
+
+      // Track page load performance
+      window.addEventListener('load', () => {
+        const navigation = performance.getEntriesByType('navigation')[0]
+        const paint = performance.getEntriesByType('paint')
+        
+        window.gtag?.('event', 'page_performance', {
+          dns_time: Math.round(navigation.domainLookupEnd - navigation.domainLookupStart),
+          connection_time: Math.round(navigation.connectEnd - navigation.connectStart),
+          ttfb: Math.round(navigation.responseStart - navigation.requestStart),
+          dom_load_time: Math.round(navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart),
+          fcp: paint.find(p => p.name === 'first-contentful-paint')?.startTime
+        })
+      })
+    }
   }
 
   // Custom event tracking function that can be exported

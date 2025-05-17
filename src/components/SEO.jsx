@@ -21,13 +21,17 @@ const SEO = ({ title, description, path = '' }) => {
     updateMetaTag('og:type', 'website')
     updateMetaTag('og:url', url)
     updateMetaTag('og:image', `${metadata.siteUrl}${metadata.ogImage}`)
+    updateMetaTag('og:image:width', '1200')
+    updateMetaTag('og:image:height', '1200')
+    updateMetaTag('og:image:alt', `${metadata.author} - Full-Stack Developer`)
     
     // Twitter Card tags
-    updateMetaTag('twitter:card', 'summary_large_image')
+    updateMetaTag('twitter:card', 'summary')
     updateMetaTag('twitter:creator', metadata.twitterHandle)
     updateMetaTag('twitter:title', fullTitle)
     updateMetaTag('twitter:description', fullDescription)
     updateMetaTag('twitter:image', `${metadata.siteUrl}${metadata.ogImage}`)
+    updateMetaTag('twitter:image:alt', `${metadata.author} - Full-Stack Developer`)
     
     // Theme color
     updateMetaTag('theme-color', metadata.themeColor)
