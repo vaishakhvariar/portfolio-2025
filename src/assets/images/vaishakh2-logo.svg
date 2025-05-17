@@ -1,0 +1,13 @@
+<!-- Save as vaishakh-logo-tech.svg -->
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="80" stroke="#FF2E63" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Binary orbit -->
+  <text x="100" y="30" font-family="Courier" font-size="12" text-anchor="middle" fill="#00F5FF">1 0 1 0 1 0</text>
+  <text x="30" y="100" font-family="Courier" font-size="12" text-anchor="middle" fill="#00F5FF" transform="rotate(-90 30 100)">1 0 1 0</text>
+  <text x="100" y="170" font-family="Courier" font-size="12" text-anchor="middle" fill="#00F5FF">0 1 0 1 0 1</text>
+  <text x="170" y="100" font-family="Courier" font-size="12" text-anchor="middle" fill="#00F5FF" transform="rotate(90 170 100)">0 1 0 1</text>
+  
+  <!-- V Brackets -->
+  <text x="100" y="110" font-family="Courier" font-size="36" text-anchor="middle" fill="#FF2E63" font-weight="bold">&lt;/&gt;</text>
+</svg>

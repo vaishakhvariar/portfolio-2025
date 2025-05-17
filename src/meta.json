@@ -1,0 +1,28 @@
+{
+  "title": "Vaishakh Variar | Full-Stack Developer",
+  "description": "Full-Stack Developer specializing in modern web technologies. Experienced in React, Node.js, and cloud technologies.",
+  "keywords": "full-stack developer, web development, react, node.js, javascript, mongodb",
+  "author": "Vaishakh Variar",
+  "siteUrl": "https://your-domain.com",
+  "ogImage": "/og-image.jpg",
+  "twitterHandle": "@yourusername",
+  "themeColor": "#3B82F6",
+  "sections": {
+    "hero": {
+      "title": "Vaishakh Variar - Full-Stack Developer",
+      "description": "Creating beautiful digital experiences with modern technologies"
+    },
+    "projects": {
+      "title": "Featured Projects - Vaishakh Variar",
+      "description": "Showcase of my recent web development projects and applications"
+    },
+    "skills": {
+      "title": "Technical Skills - Vaishakh Variar",
+      "description": "Expertise in React, Node.js, MongoDB, and modern web technologies"
+    },
+    "contact": {
+      "title": "Contact Vaishakh Variar",
+      "description": "Get in touch for collaboration or opportunities"
+    }
+  }
+} 

@@ -1,0 +1,29 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --highlight: #32CD32;
+}
+
+.dark {
+  --highlight: #f7d705;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Highlight color classes */
+.highlight {
+  color: var(--highlight);
+}
+
+.bg-highlight {
+  background-color: var(--highlight);
+}
+
+.border-highlight {
+  border-color: var(--highlight);
+}

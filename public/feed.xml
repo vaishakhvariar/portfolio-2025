@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vaishakh Variar Portfolio Updates</title>
+    <description>Latest updates from my portfolio including new projects and skills</description>
+    <link>https://your-domain.com</link>
+    <atom:link href="https://your-domain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 21 Mar 2024 12:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 21 Mar 2024 12:00:00 GMT</lastBuildDate>
+    <generator>Portfolio RSS Generator</generator>
+    <item>
+      <title>New Portfolio Launch</title>
+      <description>Launching my new portfolio website with modern technologies and improved user experience</description>
+      <link>https://your-domain.com</link>
+      <guid isPermaLink="true">https://your-domain.com/#portfolio-launch</guid>
+      <pubDate>Tue, 21 Mar 2024 12:00:00 GMT</pubDate>
+    </item>
+    <!-- Add more items as you update your portfolio -->
+  </channel>
+</rss> 
