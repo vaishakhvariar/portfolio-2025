@@ -37,7 +37,23 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+const handleNavClick = (href) => {
+  const element = document.querySelector(href)
+  if (element) {
+    const navHeight = 80 // Approximate height of the navbar
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+    window.scrollTo({
+      top: elementPosition - navHeight,
+      behavior: 'smooth'
+    })
+
+    // Delay closing the mobile menu to allow scroll to complete
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 800) // adjust timing if needed
+  }
+}
+
 
   return (
     <nav className="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
@@ -52,7 +68,11 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
             transition={{ duration: 0.5 }}
           /> */}
           <motion.a 
-            href="#home" 
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault()
+              handleNavClick('#home')
+            }}
             className="text-lg md:text-xl font-bold highlight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -68,6 +88,10 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
             <motion.a
               key={item.name}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick(item.href)
+              }}
               className={`relative px-1 py-2 transition-colors ${
                 activeSection === item.href.substring(1) 
                   ? 'highlight font-medium' 
@@ -90,8 +114,6 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
           
           <motion.button
             onClick={toggleDarkMode}
-            // animate={{ x: darkMode ? 0 : 0 }}
-            // className="w-6 h-6 rounded-full bg-highlight"
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -103,7 +125,7 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
         {/* Mobile Hamburger */}
         <button 
           className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
@@ -124,12 +146,15 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 <motion.a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavClick(item.href)
+                  }}
                   className={`py-3 px-2 border-b border-gray-100 dark:border-gray-800 ${
                     activeSection === item.href.substring(1)
-                      ? 'text-highlight font-medium'
+                      ? 'highlight font-medium'
                       : 'text-gray-700 dark:text-gray-300'
                   }`}
-                  onClick={() => setIsOpen(false)}
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -139,10 +164,13 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
               ))}
               <div className="py-3 flex justify-center">
                 <button
-                  onClick={toggleDarkMode}
+                  onClick={() => {
+                    toggleDarkMode()
+                    setIsOpen(false)
+                  }}
                   className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                  {darkMode ? <FiSun className="text-highlight" /> : <FiMoon />}
+                  {darkMode ? <FiSun className="highlight" /> : <FiMoon />}
                 </button>
               </div>
             </div>
