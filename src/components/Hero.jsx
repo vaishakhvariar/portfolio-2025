@@ -48,7 +48,7 @@ const Hero = () => {
       >
         {/* Profile image */}
         <motion.div 
-          className="mb-8 mt-20"
+          className="mb-8 mt-16"
           variants={itemVariants}
         >
           <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl">
